@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto+Condensed&display=swap" rel="stylesheet">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+<style>
+	*{
+		font-family: 'Poppins', sans-serif !important;
+font-family: 'Roboto Condensed', sans-serif !important;	}
+
+
+	hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8c8c, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8c8c, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8c8c, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8c8c, #f0f0f0);
+}
+h6{
+	color: rgb(179, 135, 78) !important;
+}
+.main{
+	color: rgb(179, 133, 73) !important;
+}
+li{
+	color: rgb(94, 16, 94);
+}
+li div{
+	color: black;
+}
+
+
+ ol{
+	width: 500px;
+counter-reset: li;
+list-style: none;
+*list-style: decimal;
+font-size: 15px;
+font-family: 'Raleway', sans-serif;
+padding: 0;
+margin-bottom: 4em;
+}
+ ol ol{
+margin: 0 0 0 2em;
+}
+
+ .fragment a{
+font-size: 20px;
+position: relative;
+display: block;
+padding: .4em .4em .4em 2em;
+*padding: .4em;
+margin: .5em 0;
+background: #ebd6b5;
+color: #000 !important;
+text-decoration: none;
+-moz-border-radius: .3em;
+-webkit-border-radius: .3em;
+border-radius: 10em;
+transition: all .2s ease-in-out;
+}
+
+.fragment a:hover{
+background: #d6d4d4;
+text-decoration:none;
+transform: scale(1.1);
+}
+
+.fragment a:before{
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -1.3em;
+top: 50%;
+margin-top: -1.3em;
+background:#522888;
+height: 2em;
+width: 2em;
+line-height: 2em;
+border: .3em solid #fff;
+text-align: center;
+font-weight: bold;
+-moz-border-radius: 2em;
+-webkit-border-radius: 2em;
+border-radius: 2em;
+color:#FFF;
+}
+h2{
+font: weight 10px !important;
+font-size: 50px !important;
+}
+.organisme h2{
+
+color: #000000;
+
+}
+
+
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 100px 0 80px;
+}
+
+.card {
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+.card:hover .card__caption {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.card:hover .card__image {
+  transform: translateY(-10px);
+}
+.card:hover .card__thumb::after {
+  top: 0;
+}
+.card:hover .card__snippet {
+  margin: 20px 0;
+}
+.card__thumb {
+  position: relative;
+  max-height: 320px;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .card__thumb {
+    max-height: 350px;
+  }
+}
+.card__thumb::after {
+  position: absolute;
+  top: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 40%, rgba(255, 255, 255, 0) 100%);
+  transition: 0.3s;
+}
+@media (min-width: 1024px) {
+  .card__thumb::after {
+    top: calc(100% - 140px);
+  }
+}
+.card__image {
+
+	height: 200px;
+  transition: 0.5s ease-in-out;
+}
+.card__caption {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  padding: 0 20px;
+  color: white;
+  transform: translateY(-50%);
+  text-align: center;
+  transition: 0.3s;
+}
+@media (min-width: 1024px) {
+  .card__caption {
+    top: calc(100% - 110px);
+    transform: unset;
+  }
+}
+.card__title {
+	
+text-shadow: 1px 1px 2px rgb(51, 48, 48),  0 0 0.2em rgb(128, 128, 136) !important;
+	color: #ffffff !important;
+	margin-top: 30px !important;
+  display: -webkit-box;
+  max-height: 85px;
+  overflow: hidden;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  line-height: 28px;
+  text-shadow: 0px 1px 5px black;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.card__snippet {
+  display: -webkit-box;
+  max-height: 150px;
+  margin: 20px 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  transition: 0.5s ease-in-out;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+@media (min-width: 1024px) {
+  .card__snippet {
+    margin: 60px 0;
+  }
+}
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border: 1px solid white;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.card__button:hover {
+  color: black;
+  background-color: white;
+}
+
+.disclaimer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 10px;
+  background-color: white;
+  transform: translateX(-50%);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+.disclaimer__link {
+  color: #755D87;
+  text-decoration: none;
+}
+ul li{
+	font-size: 22px;
+
+}
+
+</style>
+	<body>
+   <img src="./images/x.png" alt="" style="z-index: -10;position: absolute;margin-left:1100px;margin-top: 150px;">
+		<div class="reveal" >
+			<div style="display:flex; justify-content: space-between;">
+				<div style="width:200px; height: 100px;margin-left: 10px;"><img src="./images/sqli.png"></div>
+				<div style="width:200px; height: 120px; margin-right: -80px; margin-top: -15px;"><img src="./images/ensa.jpg"></div>
+			</div>
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section >
+                    <p style="font-size:35px; color: rgb(58, 23, 68);
+					">CONCEPTION ET DEVELOPPEMENT D’UNE APPLICATION
+						WEB POUR LA GESTION DES COLLABORATEURS .
+						</p>
+					<h4 style="font-family: 'Poppins', sans-serif;
+					font-family: 'Roboto Condensed', sans-serif;"><strong>M<span style="color:rgb(94, 16, 94);">Y</span> S<span style="color:rgb(94, 16, 94);">I</span>RH</strong> </h4>
+					<hr >
+					<h3  style="font-size:25px; margin-bottom: 50px; margin-top: -12px; font-weight: 100;">Soutenance du Projet de Fin d’Étude en vue de l’obtention du 
+						Diplôme <br>d’Ingénieur d’ État</h3>
+ 
+						<div style="font-size: 18px;">
+
+							<div class="sub-titles">
+								<h6 style="margin-bottom:-20px;" >Specialité : </h6>
+								<p>Génie Informatique</p>
+							</div>
+							<div>
+								<h6 style="margin-bottom:-20px;">Réalisé par : </h6>
+								<p>Abir ELASSOUTI &nbsp; &nbsp;&nbsp;&nbsp; Khalil NASRI</p>
+							</div>
+							<div>
+								<h6 style="margin-bottom:-20px;">Encadré par: : </h6>
+								<p>Mohammed Rahmoune</p>
+							</div>
+
+						</div>
+
+					
+						<small style="font-size: 14px; color: rgb(102, 102, 102);position:relative; bottom: -50px;">2022-2023</small>
+				</section>
+
+				<!-- <section data-transition="zoom">
+					<section id="fragments">
+					<h2  >PLAN</h2>
+					<ol >
+						
+						<li class="fragment"  ><a href="#/introduction"> Introduction</a>
+						</li>
+						
+						<li class="fragment "><a> Présentation de l’organisme d’accueil </a> 
+						</li>
+						<li class="fragment "><a>Présentation du projet MYSIRH</a>
+						</li>
+						<li class="fragment "><a>Méthodologie de travail</a>
+						</li>
+						<li class="fragment "><a>Conception et modélisation du projet MYSIRH</a> 
+						<li class="fragment "><a>Réalisation du projet MYSIRH</a>
+						</li>
+						<li class="fragment "><a>Conclusion</a></li>
+					</ol>
+				</aside>
+					</section>
+				</section>
+				
+				<section data-transition="zoom" >
+					<section id="fragments">
+				   <h2 >Introduction</h2> 
+					</aside>
+				    </section>
+				</section>
+
+				
+				<section data-transition="zoom">
+					<img src="./images/xx.png.png" alt="" style="margin-left: 200px; margin-top:60px; opacity:0.6 ;">
+
+					<section id="fragments" class="organisme" data-background-gradient="linear-gradient(to bottom, #d6bfeb, #f1e7d0)">
+						<h2 style="color: rgb(0, 0, 0);  text-shadow: 2px 2px #807f7f;">Présentation de l’organisme d’accueil</h2>
+					</section>
+
+
+
+					<section id="fragments" class="organisme"data-background-gradient="linear-gradient(to bottom, #d6bfeb, #f1e7d0)" >
+						<h2 style="color: rgb(0, 0, 0);  text-shadow: 2px 2px #807f7f;">Le Groupe SQLI</h2>
+						<p class="fragment ">SQLI est un groupe européen créé en 1990,</p><p class="fragment ">dédié à l’expérience digitale qui accompagne 
+							les grandes entreprises internationales</p> 
+					</section>
+
+	
+					
+					<section data-background-gradient="linear-gradient(to bottom,#f1e7d0,#d6bfeb)" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<h2 ><span style="color: rgb(131, 90, 2);" data-id="title" data-auto-animate-delay="0.2" >Une solide présence européenne</span></h2>
+						<br>
+						<p  class="fragment "> 11 <span style="color:rgb(32, 100, 248) ;font-size: 40px; font-weight: bold;">Pays</span>
+							– 11 <span style="color:rgb(32, 100, 248) ;font-size: 40px; font-weight: bold;">Agences </span>en Europe : Lausanne, Genève, Bruxelles, Luxembourg, Amsterdam, … et 3 
+						   au Maroc : Rabat, Oujda, Casablanca. Ainsi une capacité de déploiement mondiale.  </p> 
+						   <div class="r-hstack justify-center">
+							<div data-id="box1" style="background: rgb(59, 58, 58); width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+							<div data-id="box2" style="background: rgb(59, 58, 58); width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+							<div data-id="box3" style="background: rgb(59, 58, 58); width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+						</div>
+					</section>
+
+
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<div class="container-card">
+	<div class="card" data-id="box1">
+		<figure class="card__thumb">
+			<img src="./images/casa.jpg" alt="Picture by Kyle Cottrell" class="card__image">
+			<figcaption class="card__caption">
+				<h2 class="card__title">SQLI CASA</h2>
+				<p class="card__snippet">Créé en 1990,Présent depuis 2008 à CasaNearshore Park.</p>
+		
+			</figcaption>
+		</figure>
+	</div>
+
+	<div class="card" data-id="box2">
+		<figure class="card__thumb">
+			<img src="./images/R.gif" alt="Picture by Nathan Dumlao" class="card__image">
+			<figcaption class="card__caption">
+				<h2 class="card__title">SQLI OUJDA</h2>
+				<p class="card__snippet">Crée en 2006.</p>
+		
+			</figcaption>
+		</figure>
+	</div>
+
+
+	<div data-id="box3" class="card">
+		<figure class="card__thumb">
+			<img src="./images/Rabat.jpg" alt="Picture by Daniel Lincoln" class="card__image">
+			<figcaption class="card__caption">
+				<h2 class="card__title">SQLI RABAT</h2>
+				<p class="card__snippet">Crée en 2003.</p>
+			
+			</figcaption>
+		</figure>
+	</div>
+
+	
+	
+</div>
+
+						
+					</section >
+					 
+                       
+
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<div class="r-stack">
+							<div data-id="box1" style="background: #4f336c; width: 1000px; height: 500px; "></div>
+							<div data-id="box2" style="background: rgb(27, 27, 27); width: 990px; height: 490px;"></div>
+							<div data-id="box3" style="background: rgb(255, 255, 255); width: 950px; height: 450px; padding: 20px ;">
+								<img src="./images/xx.png.png" alt="" style="margin-left: -170px; margin-top:60px;  ;position: absolute;">
+								<h2 style="margin-bottom: 45px;"><span style="color: rgb(131, 90, 2); " data-id="title" >L’agence SQLI Oujda</span></h2>
+							
+								<p class="fragment " style="font-size:25px;">SQLI dispose de ses propres centres de développement au Maroc à Rabat et Oujda. </p>
+								<p class="fragment" ><span style="color:#4f336c;font-weight: bolder;">500</span> collaborateurs travaillant en étroite synergie avec l’ensemble des agences. </p> 
+							  <p class="fragment"  style="font-size:25px;">
+								 le projet de construction de 
+								la plate-forme offshore sur le campus technologique SQLI d’Oujda, qui est mené en partenariat avec la région de l’Oriental et l’Université Mohammed 1er d’Oujda
+								, est considéré comme un véritable choix stratégique pour le Groupe. 
+							  </p>
+							</div>
+						</div>
+					</section>
+
+				</section>
+
+
+
+
+	
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h2>Présentation du projet MYSIRH</h2>
+				</section>
+                      
+
+
+
+		<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+			<section data-auto-animate  id="fragment">
+				<div  data-id="definition" >
+				Définition
+				</div>
+				<div class=" fragment" data-id="problematique">
+				Problématique
+				</div>
+				<div class=" fragment" data-id="objectifs">
+				Objectifs
+				</div>
+				<div class=" fragment" data-id="mission">
+				Mission 
+				</div>
+			
+			</section>
+		</section>		
+
+
+
+				
+<section data-auto-animate  data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" >
+
+	<div  data-id="definition">
+		Définition
+	</div>
+	<h6 style="font-size: 25px;">COMMNENT ?</h6>
+	<ul>
+		<li class="fragment">Gérer les collaborateurs.</li>
+		<li class="fragment">Agir pour favoriser l’épanouissement des collaborateurs.</li>
+		<li class="fragment">Influer sur leurs comportements...le changer.</li>
+	</ul>
+</section>
+
+
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section data-auto-animate  id="fragment">
+		<div  data-id="definition" >
+		Définition
+		</div>
+		<div  data-id="problematique">
+		Problématique
+		</div>
+		<div  data-id="objectifs">
+		Objectifs
+		</div>
+		<div data-id="mission">
+		Mission 
+		</div>
+	
+	</section>
+</section>		
+
+
+
+				
+<section data-auto-animate  data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" >
+
+	<div  data-id="problematique">
+		Problématique
+	</div>
+
+	<ul>
+		<li class="fragment">Les outils de la GRH sont peu satisfaites .</li>
+		<li class="fragment">Ces outils imposent une structure .</li>
+		<li class="fragment">l’Excel...une solution temporaire .</li>
+	</ul>
+</section>
+
+
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section data-auto-animate  id="fragment">
+		<div  data-id="definition" >
+		Définition
+		</div>
+		<div  data-id="problematique">
+		Problématique
+		</div>
+		<div  data-id="objectifs">
+		Objectifs
+		</div>
+		<div data-id="mission">
+		Mission 
+		</div>
+	
+	</section>
+</section>		
+
+
+
+
+				
+<section data-auto-animate  data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" >
+
+	<div  data-id="objectifs">
+		Objectifs
+	</div>
+
+	<ul>
+		<li class="fragment">Effectuer les actions CRUD .</li>
+		<li class="fragment">Visualiser les différentes statistiques .</li>
+		<li class="fragment">Flexibilité à ajouter des nouvelles fonctionnalités  .</li>
+	</ul>
+</section>
+
+
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section data-auto-animate  id="fragment">
+		<div  data-id="definition" >
+		Définition
+		</div>
+		<div  data-id="problematique">
+		Problématique
+		</div>
+		<div  data-id="objectifs">
+		Objectifs
+		</div>
+		<div data-id="mission">
+		Mission 
+		</div>
+	
+	</section>
+</section>		
+
+
+			
+<section data-auto-animate  data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" >
+
+	<div  data-id="mission">
+		Mission
+	</div>
+
+	<ul>
+		<li class="fragment">Sprint planning, Daily meeting, Demos.</li>
+		<li class="fragment">Développeur full stack .</li>
+		<li class="fragment">Analyse et conception .</li>
+		<li class="fragment">Développement des user stories .</li>
+		<li class="fragment">Bonnes pratiques et termes de codage .</li>
+		<li class="fragment">Utilisation des nouvelles technologies .</li>
+	</ul>
+</section>
+
+
+
+
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section data-auto-animate  id="fragment">
+		<div  data-id="definition" >
+		Définition
+		</div>
+		<div  data-id="problematique">
+		Problématique
+		</div>
+		<div  data-id="objectifs">
+		Objectifs
+		</div>
+		<div data-id="mission">
+		Mission 
+		</div>
+	
+	</section>
+</section>	
+	
+
+
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section id="fragments">
+   <h2 data-id="meth" >Méthodologie de travail</h2> 
+	</aside>
+   </section>
+	</section>
+
+	
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section id="fragments">
+    <h6 style="font-weight: 22px; color:#966916">Pourquoi Le SCRUM ?</h6>
+	<ul>
+		<li class="fragment">La souplesse et la réactivité. </li>
+		<li class="fragment">La grande capacité d’adaptation au changement grâce à des itérations courtes. </li>
+		<li class="fragment">Scrum rassemble les deux cotés théorique et pratique et se rapproche beaucoup de la réalité.</li>
+	</ul>
+	</aside>
+   </section>
+	</section>
+
+
+		
+<section data-transition="zoom" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+	<section id="fragments">
+    <h6 style="font-weight: 22px; color:#966916">Organisation</h6>
+	<ul>
+		<li class="fragment"><h5>Product owner:</h5> M. Youssef NAIMI.</li>
+		<li class="fragment"><h5>Scrum Master :</h5> M. Mehdi SIJELMASSI </li>
+		<li class="fragment"><h5>Développeurs :</h5> Abir EL ASSOUTI, Khalil NASRI, Amin MAHRACHE, Wafae AISSAOUI ,Oussama Nfaoui.</li>
+		<li class="fragment"><h5>Expert thechnique :</h5>Mahmoud Boufaddi</li>
+	</ul>
+	</aside>
+   </section>
+	</section>
+ -->
+
+	
+<section data-transition="zoom">
+	<section id="fragment">
+    <h6 style="font-weight: 22px; color:#000000; margin-top: 80px;">Déroulement du projet </h6>
+	<section>
+		<div class="fragment">
+			<p  style="font-size: 30px; opacity: .7; font-weight: 900;" >1-L’outil de gestion du projet</p>
+			<img src="./images/trello.png"  style="width: 200px;" alt="">
+		</div>
+	</section>
+
+	</aside>
+   </section>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+				<section data-visibility="hidden">
+					<h2>Hidden Slides</h2>
+					<p>
+						This slide is visible in the source, but hidden when the presentation is viewed. You can show all hidden slides by setting the `showHiddenSlides` config option to `true`.
+					</p>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="code-title">Pretty Code</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    ...
+						  );
+						}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="https://highlightjs.org/usage/">highlight.js</a>.</p>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="code-title">With animations</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+
+						function SecondExample() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down the <strong>alt</strong> key (<strong>ctrl</strong> in Linux) and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
+					</p>
+					<p>
+						(NOTE: Use ctrl + click in Linux.)
+					</p>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h2>Auto-Animate</h2>
+					<p>Automatically animate matching elements across slides with <a href="https://revealjs.com/auto-animate/">Auto-Animate</a>.</p>
+					<div class="r-hstack justify-center">
+						<div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+						<div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+						<div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div class="r-hstack justify-center">
+						<div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
+						<div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
+						<div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
+					</div>
+					<h2 style="margin-top: 20px;">Auto-Animate</h2>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div class="r-stack">
+						<div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
+						<div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
+						<div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
+					</div>
+					<h2 style="margin-top: 20px;">Auto-Animate</h2>
+				</section>
+
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+					</p>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [docs](https://revealjs.com/markdown/).
+
+						```html []
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [docs](https://revealjs.com/markdown/).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section>
+					<p>Add the <code>r-fit-text</code> class to auto-size text</p>
+					<h2 class="r-fit-text">FIT TEXT</h2>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p>
+							<span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
+							<span style="display: inline-block;" class="fragment fade-up">up, </span>
+							<span style="display: inline-block;" class="fragment fade-down">down, </span>
+							<span style="display: inline-block;" class="fragment fade-left">left</span>
+						</p>
+						<p class="fragment fade-in-then-out">fade-in-then-out</p>
+						<p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
+						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+					</section>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','dist/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+						<h2>Gradient Backgrounds</h2>
+						<pre><code class="hljs html wrap">&lt;section data-background-gradient=
+							"linear-gradient(to bottom, #ddd, #191919)"&gt;</code></pre>
+					</section>
+					<section data-background="https://static.slid.es/reveal/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code class="hljs html">&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://static.slid.es/reveal/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://static.slid.es/site/homepage/v1/homepage-video-editor.mp4" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... and GIFs!</h2>
+					</section>
+				</section>
+
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+					</p>
+					<pre><code class="hljs javascript">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						You can override background transitions per-slide.
+					</p>
+					<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				</section>
+
+				<section data-background-iframe="https://hakim.se" data-background-interactive>
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>Iframe Backgrounds</h2>
+						<p>Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							</tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a <a href="https://revealjs.com/speaker-view/">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://revealjs.com/pdf-export/">exported to PDF</a>, here's an example:</p>
+					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the page background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>State Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.on( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+					</p>
+				</section>
+
+				<section>
+					<h2>Much more</h2>
+					<ul>
+						<li>Right-to-left support</li>
+						<li><a href="https://revealjs.com/api/">Extensive JavaScript API</a></li>
+						<li><a href="https://revealjs.com/auto-slide/">Auto-progression</a></li>
+						<li><a href="https://revealjs.com/backgrounds/#parallax-background">Parallax backgrounds</a></li>
+						<li><a href="https://revealjs.com/keyboard/">Custom keyboard bindings</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section>
+	
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				autoPlayMedia: true,
+				slideNumber: true ,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+					
+	</body>
+</html>
